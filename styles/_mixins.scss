@@ -1,0 +1,38 @@
+@mixin statColor($colors...) {
+    @each $color in $colors {
+        @if $color == $bronze {
+            &.bronze {
+                color: $color;
+            } 
+        } @else if $color == $bronzeStar {
+            &.bronzeStar {
+                color: $color;
+            }
+        } @else if $color == $silver {
+            &.silver {
+                color: $color;
+            }
+        } @else if $color == $silverStar {
+            &.silver {
+                color: $color;
+            }
+        } @else if $color == $gold {
+            &.gold {
+                color: $color;
+            }
+        } @else if $color == $goldStar {
+            &.goldStar {
+                color: $color;
+            }
+        } @else if $color == $platinum {
+            &.platinum {
+                color: $color;
+            }
+        } @else if $color == $aubergine {
+            &.aubergine {
+                color: $color;
+            }
+        }
+        
+    }
+}

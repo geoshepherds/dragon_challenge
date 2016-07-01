@@ -1,0 +1,276 @@
+p, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    color: $white;
+    &.dark {
+        color: $aubergineDark;
+    }
+    &.light {
+        font-weight: 700;
+    }
+    &.upper {
+        text-transform: uppercase;
+    }
+    &.wide {
+        letter-spacing: 1.2px;
+    }
+}
+
+
+p {
+    font-size: $fontSize * 1.2;
+    &.small {
+        font-size: $fontSize;
+    }
+    &.centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 320px;
+        text-align: center;
+    }   
+}
+
+h3 {
+    font-size: $fontSize * 2.1;
+}
+
+h4 {
+    font-size: $fontSize * 1.8;
+}
+
+h5 {
+    font-size: $fontSize * 1.6;
+}
+
+h6 {
+    font-size: $fontSize * 1.4;
+}
+
+
+nav {
+    width: 100%;
+    height: 80px;
+    background: $white;
+    position: relative;
+    text-align: center;
+    @media screen and (min-width: 1024px) {
+        height: 100px;
+    }
+    & > img {
+        width: 300px;
+        height: auto;
+        @media screen and (min-width: 1024px) {
+            width: 390px;
+        }
+    }
+    & > h5 {
+        display: none;
+        @media screen and (min-width: 1024px) {
+            display: inline-block;
+            padding-left: 28px;
+            max-width: 300px;
+        }
+    }
+}
+
+div.container {
+    width: 100%;
+    position: relative;
+    clear: both;
+    &.load {
+        background: $aubergine;
+        height: 100vh;
+        & > .progress {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+}
+
+div.mainView {
+    position: relative;
+    & > nav {
+        display: none;
+        @media screen and (min-width: 1024px) {
+            display: block;
+        }
+    }
+    & > .region {
+        background: $aubergine;
+        height: 55px;
+        position: relative;
+        width: 100%;
+        @media screen and (min-width: 1024px) and (max-width: 1280px) {
+            left: 60%;
+            width: 40%;
+            float: left;
+        }
+        @media screen and (min-width: 1280px) {
+            left: 68%;
+            width: 32%;
+            float: left;
+        }
+        & > h4 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    & > .mapTitle {
+        background: $aubergineLight;
+        height: 25px;
+        position: relative;
+        width: 100%;
+        @media screen and (min-width: 1024px) and (max-width: 1280px) {
+            right: 40%;
+            width: 60%;
+            float: left;
+            height: 55px;
+        }
+        @media screen and (min-width: 1280px) {
+            right: 32%;
+            width: 68%;
+            float: left;
+            height: 55px;
+        }
+    }
+    & > .container.barChartTitle {
+        width: 100%;
+        @media screen and (min-width: 1024px) and (max-width: 1280px) {
+            left: 60%;
+            width: 40%;
+            float: left;
+        }
+        @media screen and (min-width: 1280px) {
+            left: 68%;
+            width: 32%;
+            float: left;
+        }
+    }
+}
+
+div#map {
+    width: 100%;
+    @media screen and (min-width: 1024px) and (max-width: 1280px) {
+        right: 40%;
+        width: 60%;
+        float: left;
+        height: 55px;
+    }
+    @media screen and (min-width: 1280px) {
+        right: 32%;
+        width: 68%;
+        float: left;
+        height: 55px;
+    }
+}
+
+div.statistics {
+    display: none;
+    @media screen and (min-width: 1024px) and (max-width: 1280px) {
+        display: block;
+        left: 60%;
+        width: 40%;
+        float: left;
+    }
+    @media screen and (min-width: 1280px) {
+        display: block;
+        left: 68%;
+        width: 32%;
+        float: left;
+    }
+    & > .stat {
+        width: 80%;
+        margin: 0 auto;
+        & > p {
+            width: 50%;
+            float: left;
+            padding-bottom: 28px;
+        }
+        & > h3 {
+            width: 50%;
+            float: left;
+            padding-bottom: 28px;
+            @include statColor($aubergine, $bronze, $bronzeStar, $silver, $silverStar, $gold, $goldStar, $platinum);
+        }
+    }
+}
+
+.button {
+    position: absolute;
+    &.selectRegion {
+        display: block;
+        top: 14px;
+        right: 14px;
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+    &.readMore {
+        top: 94px;
+        left: 14px;
+        @media screen and (min-width: 1024px) {
+            top: auto;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    & > div {
+        width: 37px;
+        height: 27px;
+        position: relative;
+        &.infoBtn {
+            background: $aubergineDark;
+            & > img {
+                width: 5px;
+                height: 20px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        &.regionBtn {
+            background: $white;
+            & > img {
+                width: 17px;
+                height: 9px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%); 
+            }
+        }
+    }
+}
+
+.dropDownMenu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: lighten($aubergine, 2%);
+    & > ol {
+        width: 80%;
+        margin: 0 auto;
+        & > li:first-of-type {
+            text-align: center;
+            padding: 28px 0 11px 0;
+        }
+        & > li {
+            text-align: center;
+            padding: 11px 0;
+        }
+    }
+}
+
