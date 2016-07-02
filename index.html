@@ -6,7 +6,7 @@
 <meta name="description" content="Active Healthy Kids Wales website, hosting the AHKW Report Cards and findings">
 <meta name="keywords" content="Active Healthy Kids Wales, Wales, sports, research, activity, children, health">
 <meta name="author" content="Geoshepherds">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -14,12 +14,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <link href='https://fonts.googleapis.com/css?family=Lato:700,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<script src="scripts/modernizr.js"></script>
 <link href="styles/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
  
-    <!--
+   
     <div class="firstLoad">
         <nav>
             <img src="media/images/DragonChallengeBanner.jpg" height="404" widht="101" alt="Dragon Challenge banner">
@@ -37,18 +36,16 @@
             </div>
         </div>
     </div>
-    -->
     
-    <div class="mainView">
+    
+    <div class="mainView active">
         <nav>
             <img src="media/images/DragonChallengeBanner.jpg" height="404" widht="101" alt="Dragon Challenge banner">
             <h5 class="dark">A Key Performance Indicator for Childrens Physical Competency</h5>
         </nav>
         
         <div class="region">
-            <h4>
-                Wales
-            </h4>
+            <h4>Wales</h4>
         </div>
         <div class="mapTitle">
             <p class="dark centered">
@@ -58,7 +55,7 @@
         
         <div class="container">
             <div id="map">
-                <svg></svg>
+                <svg width="100%" height="100%"></svg>
             </div>
         </div>
         
@@ -99,7 +96,27 @@
         </div>
     </div>
     
-    <div class="button selectRegion">
+    <div class="overlay active">
+        <div class="regionHelp">
+            <img src="media/icons/regionArrow.svg">
+            <p>
+                Click to select regions within Wales
+            </p>
+        </div>
+        <div class="infoHelp">
+            <img src="media/icons/infoArrow.svg">
+            <p>
+                Click to find out more about the Dragon Challenge Project
+            </p>
+        </div>
+        <div class="gotItBtn">
+            <h5 class="light upper">
+                Got it
+            </h5>
+        </div>
+    </div>
+    
+    <div class="button selectRegion active">
         <div class="regionBtn">
             <img src="media/icons/dropDown.svg" width="122" height="63" alt="Dropdown button">
         </div>
@@ -149,17 +166,74 @@
         </ol>
     </div>
     
-    <div class="button readMore">
+    <div class="button readMore active">
         <div class="infoBtn">
             <img src="media/icons/info.svg" width="13" height="57" alt="Information button">
         </div>
     </div>
     
+    <div class="infoView">
+        <nav id="infoNav">
+            <img src="media/images/DragonChallengeBanner.jpg" height="404" widht="101" alt="Dragon Challenge banner">
+            <h5 class="dark">A Key Performance Indicator for Childrens Physical Competency</h5>
+        </nav>
+        <div id="infoTitle">
+            <h5>
+                A Key Performance Indicator for Childrens Physical Competence
+            </h5>
+        </div>
+        <div id="dcVideo">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/lSPLtwDrgRM" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div id="organisations">
+            <h5>
+                Participating Organisations
+            </h5>
+            <a href="http://sport.wales/" target="_blank">
+                <h6 class="light">
+                    Sport Wales
+                </h6>
+            </a>
+            <a href="http://www.swansea.ac.uk/" target="_blank">
+                <h6 class="light">
+                    Swansea University
+                </h6>
+            </a>
+            <a href="http://www.glyndwr.ac.uk/" target="_blank">
+                <h6 class="light">
+                    Glyndwr University
+                </h6>
+            </a>
+            <a href="https://www.ljmu.ac.uk/" target="_blank">
+                <h6 class="light">
+                    Liverpool John Moores University
+                </h6>
+            </a>
+        </div>
+        <div id="credits">
+            <h6 class="dark">
+                Map visualisation by 
+                <a href="http://geoshepherds.com" target="_blank">
+                    Geoshepherds
+                </a>
+            </h6>
+        </div>
+        <div id="closeBtn">
+            <img src="media/icons/close.svg" width="14" height="14" alt="Close button">
+            <h6 class="upper light">
+                Close
+            </h6>
+        </div>
+    </div>
     
     
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="scripts/app.js"></script>
 </body> 
 
 </html>
