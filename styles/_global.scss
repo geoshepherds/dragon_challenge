@@ -19,6 +19,9 @@ p, h3, h4, h5, h6 {
 
 p {
     font-size: $fontSize * 1.2;
+    @media screen and (min-width: 1400px) {
+        font-size: $fontSize * 1.4;
+    } 
     &.small {
         font-size: $fontSize;
     }
@@ -27,7 +30,7 @@ p {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 320px;
+        width: 350px;
         text-align: center;
     }   
 }
@@ -79,6 +82,7 @@ nav {
             display: inline-block;
             padding-left: 28px;
             max-width: 300px;
+            vertical-align: 30px;
         }
     }
 }
@@ -108,6 +112,12 @@ div.mainView {
     position: relative;
     &.active {
         display: block;
+        @media screen and (orientation: landscape) and (max-width: 750px) {
+            display: none;
+        }
+        @media screen and (orientation: portrait) and (min-width: 750px) {
+            display: none;
+        }   
     }
     & > nav {
         display: none;
@@ -155,37 +165,78 @@ div.mainView {
             height: 55px;
         }
     }
+    & > .instruction {
+        display: none;
+        position: absolute;
+        top: 200px;
+        left: 50px;
+        width: 150px;
+        text-align: center;
+        line-height: 1.4;
+        @media screen and (min-width: 1024px) {
+            display: block;
+        }
+        & span {
+            color: $aubergine;
+        }
+    }
+    & > .nextRegion {
+        display: none;
+        position: absolute;
+        top: 94px;
+        right: 14px;
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+        & > p {
+            display: inline-block;
+            font-size: 11px;
+            color: $aubergine;
+        }
+        & > img {
+            display: inline-block;
+            height: 14px;
+            padding-bottom: 4px;
+            padding-left: 4px;
+        }
+    }
     & > .container.barChartTitle {
         width: 100%;
         padding-top: 28px;
         @media screen and (min-width: 1024px) and (max-width: 1280px) {
-            //left: 60%;
             margin-left: 60%;
             width: 40%;
-            //float: left;
             margin-top: 280px;
         }
         @media screen and (min-width: 1280px) {
-            //left: 68%;
             margin-left: 68%;
             width: 32%;
-            //float: left;
             margin-top: 280px;
         }
     }
+    & > .container#barChart {
+        width: 100%;
+        @media screen and (min-width: 1024px) and (max-width: 1280px) {
+            margin-left: 60%;
+            width: 40%;
+        }
+        @media screen and (min-width: 1280px) {
+            margin-left: 68%;
+            width: 32%;
+        }
+    }
+    
 }
 
 div#map {
     width: 100%;
     height: 40vh;
     @media screen and (min-width: 1024px) and (max-width: 1280px) {
-        //right: 40%;
         width: 60%;
         float: left;
         height: 80vh;
     }
     @media screen and (min-width: 1280px) {
-        //right: 32%;
         width: 68%;
         float: left;
         height: 80vh;
@@ -196,19 +247,15 @@ div.statistics {
     display: none;
     @media screen and (min-width: 1024px) and (max-width: 1280px) {
         display: block;
-        //left: 60%;
         margin-left: 60%;
         margin-top: 98px;
         width: 40%;
-        //float: left;
     }
     @media screen and (min-width: 1280px) {
         display: block;
-        //left: 68%;
         margin-left: 68%;
         margin-top: 98px;
         width: 32%;
-        //float: left;
     }
     & > .stat {
         width: 80%;
@@ -233,6 +280,12 @@ div.statistics {
     z-index: 999;
     &.active {
         display: block;
+        @media screen and (orientation: landscape) and (max-width: 750px) {
+            display: none;
+        }
+        @media screen and (orientation: portrait) and (min-width: 750px) {
+            display: none;
+        }  
     }
     &.selectRegion {
         top: 14px;
@@ -248,6 +301,10 @@ div.statistics {
             top: auto;
             bottom: 0;
             left: 0;
+            height: 30px;
+            width: 100%;
+            background: $aubergineDark;
+            cursor: pointer;
         }
     }
     & > div {
@@ -441,6 +498,12 @@ div.statistics {
         @media screen and (min-width: 1024px) {
             display: none;
         }
+        @media screen and (orientation: landscape) and (max-width: 750px) {
+            display: none;
+        }
+        @media screen and (orientation: portrait) and (min-width: 750px) {
+            display: none;
+        }  
     }
     & > .infoHelp {
         @include overlayHelp('104', '27', '26');
@@ -466,6 +529,42 @@ div.statistics {
 }
 
 
+.rotateDevice {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    background-color: $aubergineDark;
+    @media screen and (orientation: landscape) and (max-width: 750px) {
+        display: block;
+    }
+    @media screen and (orientation: portrait) and (min-width: 750px) {
+        display: block;
+    }
+    & > h4 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        text-align: center;
+        width: 250px;
+    }
+    & > img {
+        width: 50px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        @media screen and (orientation: portrait) and (min-width: 750px) {
+            top: 40%;
+            transform: translate(-50%, -40%);
+        }
+    }
+}
+
 
 .percentText {
     font-family: 'Lato', sans-serif;
@@ -477,6 +576,16 @@ div.statistics {
 .awardText {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-    font-size: 11px;
+    font-size: 9px;
     fill: $white;
+    @media screen and (min-width: 400px) and (max-width: 1024px) {
+        font-size: 11px;
+    }
+    @media screen and (min-width: 1024px)   {
+        font-size: 12px;
+    }
+}
+
+path.regions {
+    cursor: pointer;
 }
