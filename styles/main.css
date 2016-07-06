@@ -1,0 +1,647 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+p, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  color: #fff; }
+  p.dark, h3.dark, h4.dark, h5.dark, h6.dark {
+    color: #6b5e5e; }
+  p.light, h3.light, h4.light, h5.light, h6.light {
+    font-weight: 700; }
+  p.upper, h3.upper, h4.upper, h5.upper, h6.upper {
+    text-transform: uppercase; }
+  p.wide, h3.wide, h4.wide, h5.wide, h6.wide {
+    letter-spacing: 1.2px; }
+
+p {
+  font-size: 12px; }
+  @media screen and (min-width: 1400px) {
+    p {
+      font-size: 14px; } }
+  p.small {
+    font-size: 10px; }
+  p.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    text-align: center; }
+
+h3 {
+  font-size: 21px; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 16px; }
+
+h6 {
+  font-size: 14px; }
+
+.firstLoad {
+  display: none;
+  z-index: 999; }
+  .firstLoad.active {
+    display: block;
+    z-index: 999; }
+
+nav {
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  position: relative;
+  text-align: center; }
+  @media screen and (min-width: 1024px) {
+    nav {
+      height: 100px; } }
+  nav > img {
+    width: 300px;
+    height: auto; }
+    @media screen and (min-width: 1024px) {
+      nav > img {
+        width: 390px; } }
+  nav > h5 {
+    display: none; }
+    @media screen and (min-width: 1024px) {
+      nav > h5 {
+        display: inline-block;
+        padding-left: 28px;
+        max-width: 300px;
+        vertical-align: 30px; } }
+
+div.container {
+  width: 100%;
+  position: relative; }
+  div.container.load {
+    background: #b2a0a0;
+    height: 100vh; }
+    div.container.load > .progress {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      width: 300px;
+      margin: 0 auto;
+      text-align: center; }
+
+div.mainView {
+  display: none;
+  position: relative; }
+  div.mainView.active {
+    display: block; }
+    @media screen and (orientation: landscape) and (max-width: 750px) {
+      div.mainView.active {
+        display: none; } }
+    @media screen and (orientation: portrait) and (min-width: 750px) {
+      div.mainView.active {
+        display: none; } }
+  div.mainView > nav {
+    display: none; }
+    @media screen and (min-width: 1024px) {
+      div.mainView > nav {
+        display: block; } }
+  div.mainView > .region {
+    background: #b2a0a0;
+    height: 55px;
+    position: relative;
+    width: 100%; }
+    @media screen and (min-width: 1024px) and (max-width: 1280px) {
+      div.mainView > .region {
+        left: 60%;
+        width: 40%;
+        float: left; } }
+    @media screen and (min-width: 1280px) {
+      div.mainView > .region {
+        left: 68%;
+        width: 32%;
+        float: left; } }
+    div.mainView > .region > h4 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+  div.mainView > .mapTitle {
+    background: #dfd9d9;
+    height: 25px;
+    position: relative;
+    width: 100%; }
+    @media screen and (min-width: 1024px) and (max-width: 1280px) {
+      div.mainView > .mapTitle {
+        right: 40%;
+        width: 60%;
+        float: left;
+        height: 55px; } }
+    @media screen and (min-width: 1280px) {
+      div.mainView > .mapTitle {
+        right: 32%;
+        width: 68%;
+        float: left;
+        height: 55px; } }
+  div.mainView > .instruction {
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    width: 150px;
+    text-align: center;
+    line-height: 1.4; }
+    @media screen and (min-width: 1024px) {
+      div.mainView > .instruction {
+        display: block; } }
+    div.mainView > .instruction span {
+      color: #b2a0a0; }
+  div.mainView > .nextRegion {
+    display: none;
+    position: absolute;
+    top: 94px;
+    right: 14px; }
+    @media screen and (min-width: 1024px) {
+      div.mainView > .nextRegion {
+        display: none; } }
+    div.mainView > .nextRegion > p {
+      display: inline-block;
+      font-size: 11px;
+      color: #b2a0a0; }
+    div.mainView > .nextRegion > img {
+      display: inline-block;
+      height: 14px;
+      padding-bottom: 4px;
+      padding-left: 4px; }
+  div.mainView > .container.barChartTitle {
+    width: 100%;
+    padding-top: 28px; }
+    @media screen and (min-width: 1024px) and (max-width: 1280px) {
+      div.mainView > .container.barChartTitle {
+        margin-left: 60%;
+        width: 40%;
+        margin-top: 280px; } }
+    @media screen and (min-width: 1280px) {
+      div.mainView > .container.barChartTitle {
+        margin-left: 68%;
+        width: 32%;
+        margin-top: 280px; } }
+  div.mainView > .container#barChart {
+    width: 100%; }
+    @media screen and (min-width: 1024px) and (max-width: 1280px) {
+      div.mainView > .container#barChart {
+        margin-left: 60%;
+        width: 40%; } }
+    @media screen and (min-width: 1280px) {
+      div.mainView > .container#barChart {
+        margin-left: 68%;
+        width: 32%; } }
+
+div#map {
+  width: 100%;
+  height: 40vh; }
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    div#map {
+      width: 60%;
+      float: left;
+      height: 80vh; } }
+  @media screen and (min-width: 1280px) {
+    div#map {
+      width: 68%;
+      float: left;
+      height: 80vh; } }
+
+div.statistics {
+  display: none; }
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    div.statistics {
+      display: block;
+      margin-left: 60%;
+      margin-top: 98px;
+      width: 40%; } }
+  @media screen and (min-width: 1280px) {
+    div.statistics {
+      display: block;
+      margin-left: 68%;
+      margin-top: 98px;
+      width: 32%; } }
+  div.statistics > .stat {
+    width: 80%;
+    margin: 0 auto; }
+    div.statistics > .stat > p {
+      width: 50%;
+      float: left;
+      padding-top: 9px; }
+    div.statistics > .stat > h3 {
+      width: 50%;
+      float: left;
+      padding-bottom: 28px; }
+      div.statistics > .stat > h3.aubergine {
+        color: #b2a0a0; }
+      div.statistics > .stat > h3.bronze {
+        color: #b06442; }
+      div.statistics > .stat > h3.bronzeStar {
+        color: #d0825e; }
+      div.statistics > .stat > h3.silver {
+        color: #4c4c4c; }
+      div.statistics > .stat > h3.silverStar {
+        color: #8a8b8d; }
+      div.statistics > .stat > h3.gold {
+        color: #cc9933; }
+      div.statistics > .stat > h3.goldStar {
+        color: #e0bf72; }
+      div.statistics > .stat > h3.platinum {
+        color: #bbbbbb; }
+
+.button {
+  display: none;
+  position: absolute;
+  z-index: 997; }
+  .button.active {
+    display: block; }
+    @media screen and (orientation: landscape) and (max-width: 750px) {
+      .button.active {
+        display: none; } }
+    @media screen and (orientation: portrait) and (min-width: 750px) {
+      .button.active {
+        display: none; } }
+  .button.selectRegion {
+    top: 14px;
+    right: 14px; }
+    @media screen and (min-width: 1024px) {
+      .button.selectRegion {
+        display: none; } }
+  .button.readMore {
+    top: 94px;
+    left: 14px; }
+    @media screen and (min-width: 1024px) {
+      .button.readMore {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        height: 30px;
+        width: 100%;
+        background: #6b5e5e;
+        cursor: pointer; } }
+  .button > div {
+    width: 37px;
+    height: 27px;
+    position: relative; }
+    .button > div.infoBtn {
+      background: #6b5e5e; }
+      .button > div.infoBtn > img {
+        width: 5px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+    .button > div.regionBtn {
+      background: #fff; }
+      .button > div.regionBtn > img {
+        width: 17px;
+        height: 9px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+
+.dropDownMenu {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #b9a8a8; }
+  .dropDownMenu.active {
+    display: block; }
+  .dropDownMenu > ol {
+    width: 80%;
+    margin: 0 auto; }
+    .dropDownMenu > ol > li:first-of-type {
+      text-align: center;
+      padding: 28px 0 11px 0; }
+    .dropDownMenu > ol > li {
+      text-align: center;
+      padding: 11px 0; }
+
+.infoView {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: #b2a0a0;
+  text-align: center; }
+  .infoView.active {
+    display: block; }
+  @media screen and (min-width: 1024px) {
+    .infoView {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 220px; } }
+  .infoView > nav {
+    display: block; }
+    @media screen and (min-width: 1024px) {
+      .infoView > nav {
+        display: none; } }
+  .infoView > #infoTitle {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 28px; }
+    @media screen and (min-width: 1024px) {
+      .infoView > #infoTitle {
+        display: none; } }
+  .infoView > #dcVideo {
+    margin: 0 auto;
+    position: relative; }
+    @media screen and (min-width: 1024px) {
+      .infoView > #dcVideo {
+        width: 50%;
+        left: 5%;
+        float: left; } }
+    .infoView > #dcVideo > .video-container {
+      padding-bottom: 180px;
+      padding-top: 28px;
+      height: 0;
+      width: 100%; }
+      .infoView > #dcVideo > .video-container > .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        border: 0; }
+  .infoView > #organisations {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 14px; }
+    @media screen and (min-width: 1024px) {
+      .infoView > #organisations {
+        width: 30%;
+        left: 50%;
+        right: 20%;
+        float: left;
+        padding-top: 44px; } }
+    .infoView > #organisations > h5, .infoView > #organisations h6 {
+      padding-bottom: 14px; }
+    .infoView > #organisations > a {
+      text-decoration: none;
+      cursor: pointer; }
+  .infoView > #credits {
+    position: absolute;
+    bottom: 14px;
+    right: 14px; }
+    .infoView > #credits > h6 {
+      font-style: italic; }
+      .infoView > #credits > h6 > a {
+        color: #6b5e5e;
+        cursor: pointer; }
+  .infoView > #closeBtn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #6b5e5e;
+    width: 70px;
+    height: 70px;
+    cursor: pointer; }
+    @media screen and (min-width: 1024px) {
+      .infoView > #closeBtn {
+        width: 100%;
+        left: 0;
+        bottom: 220px;
+        right: 0;
+        text-align: left;
+        height: 50px; } }
+    .infoView > #closeBtn > img {
+      height: 18px;
+      width: 18px;
+      color: #fff;
+      padding: 14px 0 7px 0; }
+      @media screen and (min-width: 1024px) {
+        .infoView > #closeBtn > img {
+          padding: 16px 0 16px 14px;
+          float: left; } }
+    @media screen and (min-width: 1024px) {
+      .infoView > #closeBtn > h6 {
+        float: left;
+        padding: 20px 14px; } }
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 996;
+  background-color: rgba(26, 26, 26, 0.6); }
+  .overlay.active {
+    display: block; }
+    @media screen and (min-width: 1024px) {
+      .overlay.active {
+        display: none; } }
+    @media screen and (orientation: landscape) and (max-width: 750px) {
+      .overlay.active {
+        display: none; } }
+    @media screen and (orientation: portrait) and (min-width: 750px) {
+      .overlay.active {
+        display: none; } }
+  .overlay > .infoHelp {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 104px;
+    left: 14px; }
+    .overlay > .infoHelp > img {
+      width: 27px;
+      height: 26px; }
+    .overlay > .infoHelp > p {
+      line-height: 1.2;
+      letter-spacing: 0.8px; }
+  .overlay > .regionHelp {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 24px;
+    right: 14px; }
+    .overlay > .regionHelp > img {
+      width: 25px;
+      height: 35px; }
+    .overlay > .regionHelp > p {
+      line-height: 1.2;
+      letter-spacing: 0.8px; }
+  .overlay > .gotItBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    text-align: center;
+    border: 2px solid #fff;
+    cursor: pointer; }
+    .overlay > .gotItBtn > h5 {
+      padding: 14px; }
+
+.rotateDevice {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 998;
+  background-color: #6b5e5e; }
+  @media screen and (orientation: landscape) and (max-width: 750px) {
+    .rotateDevice {
+      display: block; } }
+  @media screen and (orientation: portrait) and (min-width: 750px) {
+    .rotateDevice {
+      display: block; } }
+  .rotateDevice > h4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 250px; }
+  .rotateDevice > img {
+    width: 50px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%); }
+    @media screen and (orientation: portrait) and (min-width: 750px) {
+      .rotateDevice > img {
+        top: 40%;
+        transform: translate(-50%, -40%); } }
+
+.percentText {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  fill: #6b5e5e; }
+
+.awardText {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  fill: #fff; }
+  @media screen and (min-width: 400px) and (max-width: 1024px) {
+    .awardText {
+      font-size: 11px; } }
+  @media screen and (min-width: 1024px) {
+    .awardText {
+      font-size: 12px; } }
+
+path.regions {
+  cursor: pointer; }
+
+.thecube {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 28px;
+  position: relative; }
+  .thecube .cube {
+    position: relative; }
+  .thecube .cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1); }
+  .thecube .cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    -webkit-animation: foldthecube 2.4s infinite linear both;
+    animation: foldthecube 2.4s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%; }
+  .thecube .c2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+    transform: scale(1.1) rotateZ(90deg); }
+  .thecube .c3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+    transform: scale(1.1) rotateZ(180deg); }
+  .thecube .c4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+    transform: scale(1.1) rotateZ(270deg); }
+  .thecube .c2:before {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s; }
+  .thecube .c3:before {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s; }
+  .thecube .c4:before {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s; }
+@keyframes foldthecube {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; }
+  25%,
+        75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1; }
+  90%,
+        100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0; } }
+
+/*# sourceMappingURL=main.css.map */
