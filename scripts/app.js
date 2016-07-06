@@ -115,35 +115,53 @@ $(document).ready(function() {
     var $black = '#1a1a1a';
     var $white = '#fff';
     
+    //gradient fill for map and barChart
+    var gradientData = [
+                {award: 1, color: $bronze},
+                {award: 2, color: $bronzeStar},
+                {award: 3, color: $silver},
+                {award: 4, color: $silverStar},
+                {award: 5, color: $gold},
+                {award: 6, color: $goldStar},
+                {award: 7, color: $platinum}        
+            ]; 
+    
+    //append defs and linear gradient to svg's
+    var metalColor = d3.selectAll('svg').append('defs').selectAll('linearGradient')
+        .data(gradientData)
+        .enter().append('linearGradient')
+        .attr({
+            id: function(d) {
+                return 'gradient-' + d.award;
+            },
+            x1: '0%',
+            x2: '20%',
+            y1: '80%',
+            y2: '20%'
+        })
+    
+    //append first color stop
+    metalColor.append('stop')
+        .attr({
+            offset: '0%',
+            'stop-color': function(d) {
+                return d.color;
+            }
+        });
+    
+    //append final colour stop
+    metalColor.append('stop')
+        .attr({
+            offset: '100%',
+            'stop-color': function(d) {
+                return d.color;
+            },
+            'stop-opacity': 0.8
+        });
     
     
-    function getColor(award) {
-        
-        if ($.type(award) == 'string') {
-            
-            return award === null ? $black :
-            award == 'Bronze' ? $bronze :
-            award == 'Bronze Star' ? $bronzeStar :
-            award == 'Silver' ? $silver :
-            award == 'Silver Star' ? $silverStar :
-            award == 'Gold' ? $gold :
-            award == 'Gold Star' ? $goldStar :
-            award == 'Platinum' ? $platinum :
-                        $black;
-        } else {
-            
-            return award === null ? $black :
-            award == 1 ? $bronze :
-            award == 2 ? $bronzeStar :
-            award == 3 ? $silver :
-            award == 4 ? $silverStar :
-            award == 5 ? $gold :
-            award == 6 ? $goldStar :
-            award == 7 ? $platinum :
-                        $black;
-        }
-        
-    }
+    
+  
     
     //set award class for hovered region text elements in stats
     function setAwardClass(element, award) {
@@ -215,7 +233,7 @@ $(document).ready(function() {
             })
             .style({
                 fill: function(d) {
-                    return getColor(d.properties.prev_award);
+                    return 'url(#gradient-' + d.properties.prev_award + ')';
                 },
                 stroke: $white,
                 'stroke-width': '0.8px',
@@ -350,8 +368,8 @@ $(document).ready(function() {
     
     var barG = d3.select('#barChart > svg').append('g')
         .attr({
-            class: 'barG'
-            //transform: 'translate(2.5, 0)'
+            class: 'barG',
+            transform: 'translate(2.5, 0)'
         });
     var bar;
     var textLabel;
@@ -371,13 +389,13 @@ $(document).ready(function() {
     function walesResults() {
         
         var awardResults = [
-            {award: 'Bronze', percent: 29, oldpercent: 3},
-            {award: 'Bronze Star', percent: 6.8, oldpercent: 3},
-            {award: 'Silver', percent: 21.5, oldpercent: 3},
-            {award: 'Silver Star', percent: 8.5, oldpercent: 3},
-            {award: 'Gold', percent: 25.2, oldpercent: 3},
-            {award: 'Gold Star', percent: 4.8, oldpercent: 3},
-            {award: 'Platinum', percent: 4.5, oldpercent: 3}
+            {award: 'Bronze', percent: 29, oldpercent: 3, awardIndex: 1},
+            {award: 'Bronze Star', percent: 6.8, oldpercent: 3, awardIndex: 2},
+            {award: 'Silver', percent: 21.5, oldpercent: 3, awardIndex: 3},
+            {award: 'Silver Star', percent: 8.5, oldpercent: 3, awardIndex: 4},
+            {award: 'Gold', percent: 25.2, oldpercent: 3, awardIndex: 5},
+            {award: 'Gold Star', percent: 4.8, oldpercent: 3, awardIndex: 6},
+            {award: 'Platinum', percent: 4.5, oldpercent: 3, awardIndex: 7}
             ];
         
         drawBars(awardResults);
@@ -391,13 +409,13 @@ $(document).ready(function() {
         
         
         var regionResults = [
-            {award: 'Bronze', percent: +(data.properties.bronze_pct * 100).toFixed(1), oldpercent: +(oldData.properties.bronze_pct * 100).toFixed(1)},
-            {award: 'Bronze Star', percent: +(data.properties.bronzestar * 100).toFixed(1), oldpercent: +(oldData.properties.bronzestar * 100).toFixed(1)},
-            {award: 'Silver', percent: +(data.properties.silver_pct * 100).toFixed(1), oldpercent: +(oldData.properties.silver_pct * 100).toFixed(1)},
-            {award: 'Silver Star', percent: +(data.properties.silverstar * 100).toFixed(1), oldpercent: +(oldData.properties.silverstar * 100).toFixed(1)},
-            {award: 'Gold', percent: +(data.properties.gold_pct * 100).toFixed(1), oldpercent: +(oldData.properties.gold_pct * 100).toFixed(1)},
-            {award: 'Gold Star', percent: +(data.properties.goldstar_p * 100).toFixed(1), oldpercent: +(oldData.properties.goldstar_p * 100).toFixed(1)},
-            {award: 'Platinum', percent: +(data.properties.platinum_p * 100).toFixed(1), oldpercent: +(oldData.properties.platinum_p * 100).toFixed(1)}
+            {award: 'Bronze', percent: +(data.properties.bronze_pct * 100).toFixed(1), oldpercent: +(oldData.properties.bronze_pct * 100).toFixed(1), awardIndex: 1},
+            {award: 'Bronze Star', percent: +(data.properties.bronzestar * 100).toFixed(1), oldpercent: +(oldData.properties.bronzestar * 100).toFixed(1), awardIndex: 2},
+            {award: 'Silver', percent: +(data.properties.silver_pct * 100).toFixed(1), oldpercent: +(oldData.properties.silver_pct * 100).toFixed(1), awardIndex: 3},
+            {award: 'Silver Star', percent: +(data.properties.silverstar * 100).toFixed(1), oldpercent: +(oldData.properties.silverstar * 100).toFixed(1), awardIndex: 4},
+            {award: 'Gold', percent: +(data.properties.gold_pct * 100).toFixed(1), oldpercent: +(oldData.properties.gold_pct * 100).toFixed(1), awardIndex: 5},
+            {award: 'Gold Star', percent: +(data.properties.goldstar_p * 100).toFixed(1), oldpercent: +(oldData.properties.goldstar_p * 100).toFixed(1), awardIndex: 6},
+            {award: 'Platinum', percent: +(data.properties.platinum_p * 100).toFixed(1), oldpercent: +(oldData.properties.platinum_p * 100).toFixed(1), awardIndex: 7}
             ];
         
         drawBars(regionResults);
@@ -423,7 +441,7 @@ $(document).ready(function() {
         rectangle = bar.append('rect')
             .style({
                 fill: function(d) {
-                    return getColor(d.award);
+                    return 'url(#gradient-' + d.awardIndex + ')';;
                 },
                 opacity: 1
                 })
@@ -732,6 +750,7 @@ $(document).ready(function() {
     
     $(window).resize(function() {
         
+            
         //Update BarChart
         var windW = $(window).width();        
         var windH = $(window).height();
@@ -739,46 +758,47 @@ $(document).ready(function() {
         var mtH = $('.mapTitle').height();
         var wmH = $('.walesMap').height();
         
-        var newBarChartWidth = $('#barChart').width();
-        var newBarChartHeight;
+        barChartWidth = $('#barChart').width();
+        barChartHeight;
         
         //set height of barchart depending on window width
         function getNewBarChartHeight() {
             if (windW >= 1024) {
-                newBarChartHeight = windH - 438;
+                barChartHeight = windH - 438;
             } else {
-                newBarChartHeight = windH - regH - mtH - wmH - 30;
+                barChartHeight = windH - regH - mtH - wmH - 30;
             }
         }
         getNewBarChartHeight();
         
-        barSVG.attr({width: newBarChartWidth, height: newBarChartHeight});
+        barSVG.attr({width: barChartWidth, height: barChartHeight});
         
-        var newBarWidth = (newBarChartWidth - 5) / 7;
+        barWidth = (barChartWidth - 5) / 7;
         
         //update barChart div with height
-        $('#barChart').css({height: newBarChartHeight});
+        $('#barChart').css({height: barChartHeight});
         
         
         
         barChartScaleY
             .domain([-5, 55])
-            .range([newBarChartHeight, 0]);
+            .range([barChartHeight, 0]);
         
         
         bar.attr("transform", function(d, i){
-                return "translate(" + i * newBarWidth + ")"
+                return "translate(" + i * barWidth + ")"
             });
       
         //transition to active region data
         rectangle.attr({
                 height: function(d) { 
                     if (!isNaN(d.percent)) {
-                        return newBarChartHeight - barChartScaleY(d.percent);
+                        return barChartHeight - barChartScaleY(d.percent);
                     } else {
-                        return newBarChartHeight - 1;
+                        return barChartHeight - 1;
                     }
                 },
+                width: barWidth,
                 y: function(d) { 
                     if (!isNaN(d.percent)) {
                         return barChartScaleY(d.percent);
@@ -797,9 +817,9 @@ $(document).ready(function() {
             });
 
         
-        awardLabel.attr({y: newBarChartHeight - 14});
-                        
-            
+        awardLabel.attr({y: barChartHeight - 14});
+        
+        
         
         
         

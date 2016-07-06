@@ -19,7 +19,7 @@
 <body>
  
    
-    <div class="firstLoad">
+    <div class="firstLoad active">
         <nav>
             <img src="media/images/DragonChallengeBanner.jpg" height="404" widht="101" alt="Dragon Challenge banner">
             <h5 class="dark">A Key Performance Indicator for Childrens Physical Competency</h5>
@@ -37,7 +37,7 @@
         </div>
     </div>
     
-    <div class="overlay active">
+    <div class="overlay">
         <div class="regionHelp">
             <img src="media/icons/regionArrow.svg">
             <p>
@@ -132,7 +132,7 @@
     
     
     
-    <div class="button selectRegion active">
+    <div class="button selectRegion">
         <div class="regionBtn">
             <img src="media/icons/dropDown.svg" width="122" height="63" alt="Dropdown button">
         </div>
@@ -182,7 +182,7 @@
         </ol>
     </div>
     
-    <div class="button readMore active">
+    <div class="button readMore">
         <div class="infoBtn">
             <img src="media/icons/info.svg" width="13" height="57" alt="Information button">
         </div>
@@ -247,6 +247,13 @@
     
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+    $(window).on('load', function() {
+        $('.firstLoad').removeClass('active');        
+        $('.overlay').addClass('active');        
+        $('.button').addClass('active');        
+    });
+</script>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="scripts/app.js"></script>
