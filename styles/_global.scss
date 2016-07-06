@@ -26,10 +26,7 @@ p {
         font-size: $fontSize;
     }
     &.centered {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include center();
         width: 350px;
         text-align: center;
     }   
@@ -54,8 +51,10 @@ h6 {
 
 .firstLoad {
     display: none;
+    z-index: 999;
     &.active {
         display: block;
+        z-index: 999;
     }
 }
 
@@ -90,15 +89,11 @@ nav {
 div.container {
     width: 100%;
     position: relative;
-    //clear: both;
     &.load {
         background: $aubergine;
         height: 100vh;
         & > .progress {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -30%);
+            @include center(30, 50);
             width: 300px;
             margin: 0 auto;
             text-align: center;
@@ -141,10 +136,7 @@ div.mainView {
             float: left;
         }
         & > h4 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            @include center();
         }
     }
     & > .mapTitle {
@@ -277,7 +269,7 @@ div.statistics {
 .button {
     display: none;
     position: absolute;
-    z-index: 999;
+    z-index: 997;
     &.active {
         display: block;
         @media screen and (orientation: landscape) and (max-width: 750px) {
@@ -316,10 +308,7 @@ div.statistics {
             & > img {
                 width: 5px;
                 height: 20px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                @include center();
             }
         }
         &.regionBtn {
@@ -327,10 +316,7 @@ div.statistics {
             & > img {
                 width: 17px;
                 height: 9px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%); 
+                @include center(); 
             }
         }
     }
@@ -405,7 +391,6 @@ div.statistics {
             padding-top: 28px;
             height:0;
             width: 100%;
-            //padding-bottom:56.25%;
             & > .video-container iframe {
                 position:absolute;
                 top:0;
@@ -443,7 +428,6 @@ div.statistics {
         & > h6 {
             font-style: italic;
             & > a {
-                //text-decoration: none;
                 color: $aubergineDark;
                 cursor: pointer;
             }
@@ -491,7 +475,7 @@ div.statistics {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 998;
+    z-index: 996;
     background-color: rgba($black, 0.6);
     &.active {
         display: block;
@@ -514,10 +498,7 @@ div.statistics {
         right: 14px;
     }
     & > .gotItBtn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include center();
         width: 90px;
         text-align: center;
         border: 2px solid $white;
@@ -545,19 +526,13 @@ div.statistics {
         display: block;
     }
     & > h4 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); 
+        @include center(); 
         text-align: center;
         width: 250px;
     }
     & > img {
         width: 50px;
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -30%);
+        @include center(30, 50);
         @media screen and (orientation: portrait) and (min-width: 750px) {
             top: 40%;
             transform: translate(-50%, -40%);
