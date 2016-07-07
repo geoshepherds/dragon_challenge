@@ -847,15 +847,11 @@ $(document).ready(function() {
         if (isMobile.any() != null && $(window).width() >= 1024) {
             $('.selectRegion').addClass('active');
             $('.instruction').removeClass('active');
-            $('.overlay').addClass('active');
             
         } else if (isMobile.any() == null && $(window).width() >= 1024) {
             $('.selectRegion').removeClass('active');
             $('.instruction').addClass('active');
-            $('.overlay').removeClass('active');
             
-        } else if (isMobile.any() != null && $(window).width() < 1024) {
-            $('.overlay').addClass('active');
         }
         
     }); // end resize function

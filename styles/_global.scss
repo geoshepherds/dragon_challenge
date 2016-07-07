@@ -345,16 +345,16 @@ div.statistics {
         margin: 0 auto;
         & > li:first-of-type {
             text-align: center;
-            padding: 28px 0 11px 0;
-            @media screen and (min-width: 1000px) {
-                padding: 28px 0 14px 0;
+            padding: 28px 0 8px 0;
+            @media screen and (min-width: 350px) {
+                padding: 28px 0 12px 0;
             }
         }
         & > li {
             text-align: center;
-            padding: 11px 0;
-            @media screen and (min-width: 1000px) {
-                padding: 14px 0;
+            padding: 8px 0;
+            @media screen and (min-width: 350px) {
+                padding: 12px 0;
             }
         }
     }

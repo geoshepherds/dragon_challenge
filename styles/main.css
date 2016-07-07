@@ -367,16 +367,16 @@ div.statistics {
     margin: 0 auto; }
     .dropDownMenu > ol > li:first-of-type {
       text-align: center;
-      padding: 28px 0 11px 0; }
-      @media screen and (min-width: 1000px) {
+      padding: 28px 0 8px 0; }
+      @media screen and (min-width: 350px) {
         .dropDownMenu > ol > li:first-of-type {
-          padding: 28px 0 14px 0; } }
+          padding: 28px 0 12px 0; } }
     .dropDownMenu > ol > li {
       text-align: center;
-      padding: 11px 0; }
-      @media screen and (min-width: 1000px) {
+      padding: 8px 0; }
+      @media screen and (min-width: 350px) {
         .dropDownMenu > ol > li {
-          padding: 14px 0; } }
+          padding: 12px 0; } }
 
 .infoView {
   display: none;
