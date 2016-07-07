@@ -42,7 +42,7 @@
     width: 140px;
     text-align: center;
     top: unquote($topPos + 'px');
-    & > img {
+    & > img, & > img.tablet & > img.mobile {
         width: unquote($imgWidth + 'px');
         height: unquote($imgHeight + 'px');
     }

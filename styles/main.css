@@ -45,6 +45,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+body {
+  overflow: hidden; }
+
 p, h3, h4, h5, h6 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
@@ -188,13 +191,12 @@ div.mainView {
     display: none;
     position: absolute;
     top: 200px;
-    left: 50px;
-    width: 150px;
+    left: 40px;
+    width: 130px;
     text-align: center;
     line-height: 1.4; }
-    @media screen and (min-width: 1024px) {
-      div.mainView > .instruction {
-        display: block; } }
+    div.mainView > .instruction.active {
+      display: block; }
     div.mainView > .instruction span {
       color: #b2a0a0; }
   div.mainView > .nextRegion {
@@ -311,7 +313,7 @@ div.statistics {
     right: 14px; }
     @media screen and (min-width: 1024px) {
       .button.selectRegion {
-        display: none; } }
+        top: 115px; } }
   .button.readMore {
     top: 94px;
     left: 14px; }
@@ -357,15 +359,24 @@ div.statistics {
   background: #b9a8a8; }
   .dropDownMenu.active {
     display: block; }
+    @media screen and (min-width: 1000px) {
+      .dropDownMenu.active {
+        top: 154px; } }
   .dropDownMenu > ol {
     width: 80%;
     margin: 0 auto; }
     .dropDownMenu > ol > li:first-of-type {
       text-align: center;
       padding: 28px 0 11px 0; }
+      @media screen and (min-width: 1000px) {
+        .dropDownMenu > ol > li:first-of-type {
+          padding: 28px 0 14px 0; } }
     .dropDownMenu > ol > li {
       text-align: center;
       padding: 11px 0; }
+      @media screen and (min-width: 1000px) {
+        .dropDownMenu > ol > li {
+          padding: 14px 0; } }
 
 .infoView {
   display: none;
@@ -482,9 +493,6 @@ div.statistics {
   background-color: rgba(26, 26, 26, 0.6); }
   .overlay.active {
     display: block; }
-    @media screen and (min-width: 1024px) {
-      .overlay.active {
-        display: none; } }
     @media screen and (orientation: landscape) and (max-width: 750px) {
       .overlay.active {
         display: none; } }
@@ -496,25 +504,51 @@ div.statistics {
     width: 140px;
     text-align: center;
     top: 104px;
-    left: 14px; }
-    .overlay > .infoHelp > img {
+    left: 14px;
+    bottom: initial; }
+    .overlay > .infoHelp > img, .overlay > .infoHelp > img.tablet .overlay > .infoHelp > img.mobile {
       width: 27px;
       height: 26px; }
     .overlay > .infoHelp > p {
       line-height: 1.2;
       letter-spacing: 0.8px; }
+    @media screen and (min-width: 1024px) {
+      .overlay > .infoHelp {
+        top: initial;
+        bottom: 50px;
+        left: 20px;
+        padding-left: 40px; } }
+    .overlay > .infoHelp > img.mobile {
+      display: block;
+      margin: 0 auto 7px auto; }
+      @media screen and (min-width: 1024px) {
+        .overlay > .infoHelp > img.mobile {
+          display: none; } }
+    .overlay > .infoHelp > img.tablet {
+      transform: rotate(270deg);
+      display: none; }
+      @media screen and (min-width: 1024px) {
+        .overlay > .infoHelp > img.tablet {
+          display: block;
+          margin: 0;
+          position: absolute;
+          left: 0px;
+          bottom: 0px; } }
   .overlay > .regionHelp {
     position: absolute;
     width: 140px;
     text-align: center;
     top: 24px;
     right: 14px; }
-    .overlay > .regionHelp > img {
+    .overlay > .regionHelp > img, .overlay > .regionHelp > img.tablet .overlay > .regionHelp > img.mobile {
       width: 25px;
       height: 35px; }
     .overlay > .regionHelp > p {
       line-height: 1.2;
       letter-spacing: 0.8px; }
+    @media screen and (min-width: 1024px) {
+      .overlay > .regionHelp {
+        top: 124px; } }
   .overlay > .gotItBtn {
     position: absolute;
     top: 50%;
