@@ -45,9 +45,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body {
-  overflow: hidden; }
-
 p, h3, h4, h5, h6 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
@@ -385,8 +382,7 @@ div.statistics {
   min-height: 570px;
   position: relative;
   background: #b2a0a0;
-  text-align: center;
-  overflow-y: scroll; }
+  text-align: center; }
   .infoView.active {
     display: block; }
   @media screen and (min-width: 1024px) {
@@ -395,7 +391,8 @@ div.statistics {
       bottom: 0;
       left: 0;
       right: 0;
-      height: 220px; } }
+      height: 220px;
+      min-height: 200px; } }
   .infoView > nav {
     display: block; }
     @media screen and (min-width: 1024px) {

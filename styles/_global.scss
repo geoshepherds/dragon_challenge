@@ -1,7 +1,3 @@
-body {
-    overflow: hidden;
-}
-
 p, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 900;
@@ -368,7 +364,6 @@ div.statistics {
     position: relative;
     background: $aubergine;
     text-align: center;
-    overflow-y: scroll;
     &.active {
         display: block;
     }
@@ -378,6 +373,7 @@ div.statistics {
         left: 0;
         right: 0;
         height: 220px;
+        min-height: 200px;
     }
     & > nav {
         display: block;
