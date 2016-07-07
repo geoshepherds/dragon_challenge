@@ -368,13 +368,13 @@ div.statistics {
     .dropDownMenu > ol > li:first-of-type {
       text-align: center;
       padding: 28px 0 8px 0; }
-      @media screen and (min-width: 350px) {
+      @media screen and (min-width: 350px) and (orientation: portrait) {
         .dropDownMenu > ol > li:first-of-type {
           padding: 28px 0 12px 0; } }
     .dropDownMenu > ol > li {
       text-align: center;
       padding: 8px 0; }
-      @media screen and (min-width: 350px) {
+      @media screen and (min-width: 350px) and (orientation: portrait) {
         .dropDownMenu > ol > li {
           padding: 12px 0; } }
 
