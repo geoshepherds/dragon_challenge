@@ -382,9 +382,11 @@ div.statistics {
   display: none;
   width: 100%;
   height: 100vh;
+  min-height: 570px;
   position: relative;
   background: #b2a0a0;
-  text-align: center; }
+  text-align: center;
+  overflow-y: scroll; }
   .infoView.active {
     display: block; }
   @media screen and (min-width: 1024px) {
