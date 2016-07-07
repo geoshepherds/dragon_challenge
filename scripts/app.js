@@ -22,11 +22,6 @@ $(document).ready(function() {
     }
     };
     
-   
-    //update .instruction span if on mobile device and big screen
-    if (isMobile.any() != null && $(window).width() >= 1024) {
-        $('.instruction span').text('Click');
-    }
         
     ////////    load data   ////////
     
@@ -72,12 +67,11 @@ $(document).ready(function() {
     };
     var scale;
     
-    if (width * 10.5 >= 9700) {
+    if (width * 10.5 >= 9700 && height >= 400) {
         scale = 9700;
     } else {
-        scale = width * 10.5;
+        scale = height * 14.7;
     }
-    
     
     var projection = d3.geo.mercator()
         .center([-3.5, 52.25])
@@ -830,10 +824,10 @@ $(document).ready(function() {
         
         mapSVG.attr({width: mapW, height: mapH});
         
-        if (mapW * 10.5 >= 9700) {
+        if (mapW * 10.5 >= 9700 && mapH >= 400) {
             scale = 9700;
         } else {
-            scale = mapW * 10.5;
+            scale = mapH * 14.7;
         }
 
         
@@ -846,7 +840,23 @@ $(document).ready(function() {
         d3.select('path.wales').attr('d', geoPath);
         d3.selectAll('path.regions').attr('d', geoPath);
         
-
+        
+        
+        //Update display
+        //update .instruction span if on mobile device and big screen
+        if (isMobile.any() != null && $(window).width() >= 1024) {
+            $('.selectRegion').addClass('active');
+            $('.instruction').removeClass('active');
+            $('.overlay').addClass('active');
+            
+        } else if (isMobile.any() == null && $(window).width() >= 1024) {
+            $('.selectRegion').removeClass('active');
+            $('.instruction').addClass('active');
+            $('.overlay').removeClass('active');
+            
+        } else if (isMobile.any() != null && $(window).width() < 1024) {
+            $('.overlay').addClass('active');
+        }
         
     }); // end resize function
          
