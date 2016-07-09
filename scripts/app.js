@@ -688,6 +688,7 @@ $(document).ready(function() {
         //Update .barChartTitle span with $clickedRegion
         $('.barChartTitle span').text($clickedRegion);
         
+        
         //Loop through $availableRegions and update $dropDownList 
         for (var i = 0; i < $availableRegions.length; i++) {
         
@@ -710,12 +711,41 @@ $(document).ready(function() {
             
             if ($clickedRegion == dcData.features[i].properties.region_nam) {
                 
+                var regionCount = dcData.features[i].properties.count;
+                var prevAward = dcData.features[i].properties.prev_award;
+                var aveAward = dcData.features[i].properties.ave_award;
+                
+                //Update .statNumber with region count
+                $('h3.count').text(regionCount);
+
+                //Update .prevAward with region prevAward
+                setAwardClass('h3.prevAward', prevAward);
+
+                //Update .aveAward with region ave_award
+                setAwardClass('h3.aveAward', aveAward);
+                
+                //Update barChart with region data
                 regionResults(dcData.features[i], dcData.features[oldRegionIndex]);
                 oldRegionIndex = i;
                 
             } else if ($clickedRegion == 'Wales') {
                 
+                //Update .statNumber with region count
+                $('h3.count').text(1674);
+
+                //Update .prevAward with region prevAward
+                $('h3.prevAward').text('Bronze');
+                $('h3.prevAward').removeClass('bronze bronzeStar silver silverStar gold goldStar platinum');
+                $('h3.prevAward').addClass('bronze');
+
+                //Update .aveAward with region ave_award
+                $('h3.aveAward').text('Silver');
+                $('h3.aveAward').removeClass('bronze bronzeStar silver silverStar gold goldStar platinum');
+                $('h3.aveAward').addClass('silver');
+                
+                //Update barchart with wales results
                 walesResults();
+                
             } else if ($clickedRegion != dcData.features[i].properties.region_nam && $clickedRegion != 'Wales') {
                 
                 d3.selectAll('path#region' + dcData.features[i].properties.id)
