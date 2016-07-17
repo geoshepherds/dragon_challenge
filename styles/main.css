@@ -379,7 +379,7 @@ div.statistics {
   display: none;
   width: 100%;
   height: 100vh;
-  min-height: 570px;
+  min-height: 625px;
   position: relative;
   background: #b2a0a0;
   text-align: center; }
@@ -410,7 +410,7 @@ div.statistics {
     position: relative; }
     @media screen and (min-width: 1024px) {
       .infoView > #dcVideo {
-        width: 50%;
+        width: 30%;
         left: 5%;
         float: left; } }
     .infoView > #dcVideo > .video-container {
@@ -426,6 +426,33 @@ div.statistics {
         width: 100%;
         height: 100%;
         border: 0; }
+  .infoView > a {
+    text-decoration: none;
+    transition: all .3s ease-in-out; }
+    .infoView > a:hover > #pdf {
+      transition: all .3s ease-in-out;
+      border: 2px solid #fff; }
+      .infoView > a:hover > #pdf > p {
+        color: #fff;
+        transition: all .3s ease-in-out; }
+    .infoView > a:active, .infoView > a:visited {
+      text-decoration: none; }
+    .infoView > a > #pdf {
+      width: 150px;
+      margin: 14px auto;
+      border: 2px solid #dfd9d9;
+      padding: 7px; }
+      @media screen and (min-width: 1024px) {
+        .infoView > a > #pdf {
+          float: left;
+          margin-top: 68px;
+          width: 200px; }
+          .infoView > a > #pdf > p {
+            letter-spacing: 1px; } }
+      .infoView > a > #pdf > p {
+        color: #dfd9d9;
+        font-weight: 900;
+        text-transform: uppercase; }
   .infoView > #organisations {
     width: 80%;
     margin: 0 auto;
@@ -433,12 +460,12 @@ div.statistics {
     @media screen and (min-width: 1024px) {
       .infoView > #organisations {
         width: 30%;
-        left: 50%;
-        right: 20%;
         float: left;
-        padding-top: 44px; } }
-    .infoView > #organisations > h5, .infoView > #organisations h6 {
-      padding-bottom: 14px; }
+        padding-top: 44px;
+        padding-left: 5%; } }
+    .infoView > #organisations > h6, .infoView > #organisations p {
+      padding-bottom: 14px;
+      letter-spacing: 1px; }
     .infoView > #organisations > a {
       text-decoration: none;
       cursor: pointer; }
